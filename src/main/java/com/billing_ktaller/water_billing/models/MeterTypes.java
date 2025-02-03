@@ -8,6 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.Instant;
 
+@Getter
 @Entity
 public class MeterTypes {
     /**
@@ -15,19 +16,15 @@ public class MeterTypes {
      * For example, the type of the meter can be residential, commercial, or
      * industrial.
      */
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Setter
-    @Getter
     @Column(unique = true)
     private String type;
     @Setter
-    @Getter
     private String description;
     @Setter
-    @Getter
     private float rate;
     // add standing charge
     /*
@@ -36,10 +33,8 @@ public class MeterTypes {
     private float standingCharge;
     */
     @CreatedDate
-    @Getter
     private Instant createdAt;
     @LastModifiedDate
-    @Getter
     private Instant updatedAt;
 
     public MeterTypes() {

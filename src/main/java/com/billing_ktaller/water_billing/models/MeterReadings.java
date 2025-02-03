@@ -8,30 +8,25 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.Instant;
 
+@Getter
 @Entity
 public class MeterReadings {
     /**
      * This class is used to store the meter readings of the customer.
      */
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Getter
     @Setter
     @ManyToOne
     private Meters meter;
-    @Getter
     @Setter
     private float previousReading;
-    @Getter
     @Setter
     private float currentReading;
     @CreatedDate
-    @Getter
     private Instant createdAt;
     @LastModifiedDate
-    @Getter
     private Instant updatedAt;
 
     public MeterReadings() {

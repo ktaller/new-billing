@@ -8,29 +8,25 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.Instant;
 
+@Getter
 @Entity
 public class Comments {
     /**
      * This class is used to store comments related to customer's meter and
      * readings.
      */
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Setter
-    @Getter
     private String comment;
     // one meter can have multiple comments
     @Setter
-    @Getter
     @ManyToOne
     private Meters meter;
     @CreatedDate
-    @Getter
     private Instant createdAt;
     @LastModifiedDate
-    @Getter
     private Instant updatedAt;
 
     public Comments() {

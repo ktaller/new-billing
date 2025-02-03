@@ -11,41 +11,34 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.Instant;
 
+@Getter
 @Entity
 public class Customers {
     // personal details of the customer such as name, phone number
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Getter
     @Setter
     @NotBlank(message = "First name is required")
     private String firstName;
-    @Getter
     @Setter
     @NotBlank(message = "Last name is required")
     private String lastName;
-    @Getter
     @Setter
     @Column(unique = true)
     @NotBlank(message = "Phone number is required")
     // phone number can be 07******** or 01********
     @Pattern(regexp = "(07|01)\\d{8}", message = "Invalid phone number")
     private String phoneNumber;
-    @Getter
     @Setter
     @Column(unique = true)
     @Email(message = "Invalid email")
     private String email;
-    @Getter
     @Setter
     @NotBlank(message = "Address is required")
     private String address;
-    @Getter
     @CreatedDate
     private Instant createdAt;
-    @Getter
     @LastModifiedDate
     private Instant updatedAt;
 
